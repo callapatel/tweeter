@@ -1,0 +1,8 @@
+
+  <%= @tweet.author %>
+  <%= @tweet.body %>
+
+<button type="button" class="btn btn-lg btn-danger" data-toggle="popover"
+title="Popover title"
+data-content= <%= @tweet.author %>
+<%= @tweet.body %>>Click to toggle popover</button>

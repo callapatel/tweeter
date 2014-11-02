@@ -1,4 +1,38 @@
-<% @tweets.each do |tweet| %>
-  <%= tweet.body %> <br> </br>
-  <%= tweet.author %>
-<% end %>
+
+
+<body>
+<div class='container'>
+  <div class="row">
+    <div class='sidebar col-lg-4'>
+      <%= form_for @tweet do |f| %>
+              <p><%= f.label :body %>:</p>
+              <p><%= f.text_field :body %></p>
+              <p><%= f.label :author %> </p>
+              <p><%= f.text_field :author %> </p>
+              <p><%= f.submit %></p>
+            <% end %>
+    </div>
+
+    <div class="main col-lg-8">
+      <h1> Tweet Stream </h1>
+      <% @tweets.each do |tweet| %>
+        <h3> <%= link_to tweet.body, tweet_path(tweet.id) %> </h3>
+        by:
+        <%= tweet.author %>
+
+
+
+
+
+
+        
+      <% end %>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+</body>

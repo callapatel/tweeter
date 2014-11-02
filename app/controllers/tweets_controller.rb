@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
+    @tweet = Tweet.new
   end
 
   def show
@@ -15,7 +16,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(params.require(:tweet).permit(:author, :body))
     if @tweet.save
-      redirect_to "/"
+      redirect_to "/tweets"
     else
       render :new
     end
